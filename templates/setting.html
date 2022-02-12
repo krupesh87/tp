@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ashok Vatika: Setting</title>
+    <link rel="stylesheet" href="/static/css/style-starter.css">
+    <link rel="stylesheet" href="/static/css/myAccount.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+        <a class='icon' href="/">
+            <img src="/static/img/logo.jpeg" alt="logo" title="Ashok Vatika" style="height:40px;" class="img-fluid rounded-pill"/>
+          </a>
+        <div class="logo_name">Ashok Vatika</div>
+        <i class='bx bx-menu' id="btn" ></i>
+
+
+    </div>
+    <ul class="nav-list">
+      <li>
+       <a href="myAccount.html">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="orders">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+     <li>
+       <a href="setting.html">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="/static/img/logo.jpeg" alt="profileImg" style="height:40px;" class="img-fluid rounded-pill">
+           <div class="name_job">
+             <div class="name">Ashok Vatika</div>
+           </div>
+         </div>
+         <a href="/"><i class='bx bx-log-out' id="log_out" ></i></a>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    
+<p>hello world setting</p>
+
+  </section>
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
+</body>
+</html>

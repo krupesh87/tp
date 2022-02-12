@@ -1,0 +1,524 @@
+{% load cart %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashok Vatika: Plants</title>
+    <link href="//fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style-starter.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="//fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style-starter.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+   
+</head>
+<body>
+  <header id="site-header" class="fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg stroke">
+
+          <a class="navbar-brand" href="/">
+            <img src="/static/img/logo.jpeg" alt="logo" title="Ashok Vatika" style="height:40px;" class="img-fluid rounded-pill"/>
+          </a>
+            <h1><a class="navbar-brand" href="/">
+                    Ashok Vatika
+            </a></h1>
+            <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" -->
+                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <nav class="mr-auto ml-lg-5">
+                    <div class="search-bar">
+                        <form class="search" method='POST' action="/search" id="search-form">
+                          {%csrf_token%}
+                            <input type="search" id="search-input" class="search__input" name="search1"
+                                placeholder="Search for Courses.." onload="equalWidth()" required>
+                            <button type="submit"><span  class="fa fa-search search__icon"></span></button>
+                        </form>
+                    </div>
+                    <!-- <div id="results-box " class="search__input"></div> -->
+                </nav>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="ser">Category</a>
+                  </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link d" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">Account<span class="fa fa-chevron-circle-down ml-2" aria-hidden="true"></span>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          {% if user.is_authenticated %}
+                          <li><a class="dropdown-item" href="myaccount">MyAccount</a></li>
+                          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                          {% else %}
+                          <li><a class="dropdown-item" href="login"><span style="color:#1cbd37;">Login</span></a>
+                          </li>
+                          <li><a class="dropdown-item" href="signup">Register</a></li>
+                          {% endif %}
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link d" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Filter<span class="fa fa-chevron-circle-down ml-2" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+      
+                      <div class="list-group mt-3">
+                        <a href="/plants" class="list-group-item list-group-item-action  ">ALL</a>
+                        {% for i in category%}
+                        <a href="?category={{i.id}}" class="list-group-item list-group-item-action">{{i.name}}</a>
+                        {%endfor%}
+                        <p><br></p>
+                      </div>
+                    </ul>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="cart"><i class="fa fa-shopping-cart"
+                            style="font-size:25px"></i></a>
+                </li>
+                </ul>
+            </div>
+
+            <!-- toggle switch for light and dark theme -->
+
+            <div class="pull-right">
+                <nav class="navigation">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container py-1">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <!-- //toggle switch for light and dark theme -->
+        </nav>
+    </div>
+</header>
+<!--/header-->
+<div class="inner-banner">
+<section class="w3l-breadcrumb text-left">
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="/ser">Category</a></li>
+      <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Plants</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+
+       <div  class="container-fluid">
+      <div class="row">
+          
+          <section class="w3l-blogpost-content w3l-courses py-5">
+            <div class="container py-md-5">
+              
+            
+             <!-- All products -->
+              <div class="header-title mb-md-5 mb-4">
+                <!-- <span class="sub-title">Choose Category</span>
+                <div class="col-lg-3 sticky-bottom ">
+                <div class="list-group mt-3">
+                   <a href="/plants" class="list-group-item list-group-item-action  ">ALL</a>
+                    {% for i in category%}
+                    <a href="?category={{i.id}}" class="list-group-item list-group-item-action">{{i.name}}</a>
+                    {%endfor%}
+                    <p><br></p>
+                </div>
+                </div> -->
+                <h3 class="hny-title text-left"> Variety of Plants</h3>
+              </div>
+              <div class="row">
+                {% for product in page_obj%}
+                <div  id="{{product.id}}" class="col-lg-4 col-md-6 item  pt-3">
+                  
+                  <div class="card">
+                    <div class="card-header">
+                      <a href="#"><img class="card-img-bottom d-block radius-image-full" src="{{product.image.url}}" alt="Card image cap"></a>
+                    </div>
+                    <div class="card-body blog-details">
+                      <p class="price-review">{{product.price}}₹</p>
+                      <a href="#" class="blog-desc mt-2">{{product.name}}</a>
+                        <div class="course-meta mt-1">
+                          <div class="meta-item course-lesson">
+                          
+                            <span class="meta-value"> {{product.description}} </span>
+                          </div><br>
+                          <div class="meta-item course-students">
+                            
+                           
+                          
+                            <div class="card-footer  p-0"> 
+                              {% if product|is_in_cart:request.session.cart %}
+                             <div class="container">
+                              <div class="row " >
+                                <form method="POST" action="/plants#{{product.id}}" class="col-2">
+                                  {%csrf_token%}
+                                  <input type="text" name='product' hidden   value="{{product.id}}">
+                                  <input type="text" name='remove' hidden   value="True">
+                                  <input type="submit" value="-" class="btn btn-lg  text-center btn-secondary">
+                                </form>
+                              
+                                <div class="text-center col">{{product|quantity_cart:request.session.cart}}</div>
+                                <form method="POST" action="/plants#{{product.id}}" class="col-2">
+                                  {%csrf_token%}
+                                  <input type="text" name='product' hidden   value="{{product.id}}">
+                                  <input type="submit" value="+" class="btn btn-lg  text-center btn-secondary">
+                                </form>
+                              </div>
+                             </div>
+                              {% else %}
+                              <form method="POST" action="/plants#{{product.id}}" class="btn-block">
+                                {%csrf_token%}
+                                <input type="text" name='product' hidden   value="{{product.id}}">
+                                <input value="Add to cart" type="submit" class="btn btn-style btn-primary">
+                              </form>
+                              {% endif %}
+                           </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-lg justify-content-center">
+                       {% if page_obj.has_previous %}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a>
+                      </li>
+                      {% endif %}
+                      {% for i in page_obj.paginator.page_range %}
+                      {%if page_obj.number == i %}
+                        <li class="page-item active" aria-current="page">
+                          <span class="page-link">
+                            {{ i }}
+                           
+                          </span>
+                        </li>
+                      {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                   
+                      {% if page_obj.has_next %}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                  </nav>
+            </div>
+          </div>
+         
+      </div>
+    </div> 
+
+    <section class="w3l-footer-29-main">
+      <div class="footer-29 py-5">
+          <div class="container py-lg-4">
+              <div class="row footer-top-29">
+                  <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+                      <div class="footer-logo mb-3">
+                          <a class="navbar-brand" href="">Ashok Vatika</a>
+                      </div>
+                      <p>At Ashok Vatika, we firmly believe that we can change</p>
+                      <div class="main-social-footer-29 mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=100074114160121" class="facebook"><span class="fa fa-facebook"></span></a>
+                      
+                        <a href="https://www.instagram.com/ashokvatika12/" class="instagram"><span class="fa fa-instagram"></span></a>
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+  
+                      <ul>
+                          <h6 class="footer-title-29">Useful Links</h6>
+                          <li><a href="about">About Us</a></li>
+                          <li><a href="ser">Categories</a></li>
+                          <li><a href="donate">Donate Plants</a></li>
+                          <li><a href="blogs"> Blog posts</a></li>
+                          <li><a href="contact">Contact us</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+                      <h6 class="footer-title-29">Contact Info </h6>
+                      <p><strong>Address :</strong> Ashok Vatika, 343 Honey Avenue street, Mumbai, Maharashtra, India- 400042.</p>
+                      <p class="my-2"><strong>Phone :</strong> <a href="tel:+19 9234567909">+19 9234567909</a></p>
+                      <p><strong>Email :</strong> <a href="mailto:AshokVatica@gmail.com">AshokVatika@gmail.com</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+<!-- //footer -->
+
+<!-- copyright -->
+<section class="w3l-copyright">
+  <div class="container">
+      <div class="row bottom-copies">
+          <p class="col-lg-8 copy-footer-29">© 2021 Ashok Vatika. All rights reserved</p>
+
+          <div class="col-lg-4 footer-list-29">
+              <ul class="d-flex text-lg-right justify-content-center mt-lg-0 mt-3">
+                 
+                  <li class="mx-lg-5 mx-md-4 mx-3"><Privacy href="/static/pdf/privacy-policy.pdf" target="_blank">Privacy Policy</a></li>
+                  <li><a href="contact">Contact us</a></li>
+              </ul>
+          </div>
+
+      </div>
+  </div>
+
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+      &#10548;
+  </button>
+  <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+          scrollFunction()
+      };
+
+      function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("movetop").style.display = "block";
+          } else {
+              document.getElementById("movetop").style.display = "none";
+          }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+      }
+  </script>
+  <!-- /move top -->
+</section>
+<!-- //copyright -->
+
+<script src="/static/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+
+<script src="/static/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+<!-- 
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script>
+    console.log("hello")
+    var url = window.location.href
+    console.log(url)
+    var searchform = document.getElementById('search-form')
+    console.log(searchform)
+    var searchinput = document.getElementById('search-input')
+    console.log(searchinput)
+    var csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+    var resultBox=document.getElementById('result-box')
+    var sendSearchData = (game) => {
+      $.ajax({
+        method: 'POST',
+        url: 'search',
+        data: {
+          'csrfmiddlewaretoken': csrf,
+          'game': game,
+        },
+        success: (res) => {
+          console.log(res)
+          const data=res.data
+          if (Array.isArray(data)){
+            console.log('We have an Array')
+          }else{
+            if(searchinput.value.length > 0){
+              resultBox.innerHTML=`<b>${data}</b>`
+            }else{
+              // resultBox.classList.add('not-visible')
+            }
+          }
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      });
+
+    } -->
+
+    <!-- searchinput.addEventListener('keyup', e => {
+      console.log(e.target.value)
+
+      sendSearchData(e.target.value)
+    }) -->
+<!-- </script> -->
+<script src="/static/js/owl.carousel.js"></script>
+
+<!-- script for banner slider-->
+<script>
+  $(document).ready(function () {
+      $('.owl-one').owlCarousel({
+          loop: true,
+          margin: 0,
+          nav: false,
+          responsiveClass: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplaySpeed: 1000,
+          autoplayHoverPause: false,
+          responsive: {
+              0: {
+                  items: 1,
+                  nav: false
+              },
+              480: {
+                  items: 1,
+                  nav: false
+              },
+              667: {
+                  items: 1,
+                  nav: true
+              },
+              1000: {
+                  items: 1,
+                  nav: true
+              }
+          }
+      })
+  })
+</script>
+<!-- //script -->
+<!-- magnific popup -->
+<script src="/static/js/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+      $('.popup-with-zoom-anim').magnificPopup({
+          type: 'inline',
+
+          fixedContentPos: false,
+          fixedBgPos: true,
+
+          overflowY: 'auto',
+
+          closeBtnInside: true,
+          preloader: false,
+
+          midClick: true,
+          removalDelay: 300,
+          mainClass: 'my-mfp-zoom-in'
+      });
+
+      $('.popup-with-move-anim').magnificPopup({
+          type: 'inline',
+
+          fixedContentPos: false,
+          fixedBgPos: true,
+
+          overflowY: 'auto',
+
+          closeBtnInside: true,
+          preloader: false,
+
+          midClick: true,
+          removalDelay: 300,
+          mainClass: 'my-mfp-slide-bottom'
+      });
+  });
+</script>
+<!-- //magnific popup -->
+<!-- /counter-->
+<script src="/static/js/counter.js"></script>
+<!-- //counter-->
+<!-- script for tesimonials carousel slider -->
+<script>
+  $(document).ready(function () {
+      $("#owl-demo1").owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: false,
+          responsiveClass: true,
+          responsive: {
+              0: {
+                  items: 1,
+                  nav: false
+              },
+              1000: {
+                  items:2,
+                  nav: false,
+                  loop:true
+              }
+          }
+      })
+  })
+</script>
+<!-- //script for tesimonials carousel slider -->
+
+<!--/MENU-JS-->
+<script>
+  $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+          $("#site-header").addClass("nav-fixed");
+      } else {
+          $("#site-header").removeClass("nav-fixed");
+      }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+          $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+          if ($(window).width() > 991) {
+              $("header").removeClass("active");
+          }
+      });
+  });
+</script>
+<!--//MENU-JS-->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+      $('.navbar-toggler').click(function () {
+          $('body').toggleClass('noscroll');
+      })
+  });
+</script>
+<!-- //disable body scroll which navbar is in active -->
+
+<!--bootstrap-->
+<script src="/static/js/bootstrap.min.js"></script>
+<!-- //bootstrap-->
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ashok Vatika: My Account</title>
+    <link rel="stylesheet" href="/static/css/style-starter.css">
+    <link rel="stylesheet" href="/static/css/myAccount.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+        <a class='icon' href="/">
+            <img src="/static/img/logo.jpeg" alt="logo" title="Ashok Vatika" style="height:40px;" class="img-fluid rounded-pill"/>
+          </a>
+        <div class="logo_name">Ashok Vatika</div>
+        <i class='bx bx-menu' id="btn" ></i>
+
+    </div>
+    <ul class="nav-list">
+      <li>
+       <a href="myaccount">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="orders">
+         <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Order</span>
+       </a>
+       <span class="tooltip">Order</span>
+     </li>
+     <!-- <li>
+       <a href="/">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li> -->
+     <li class="profile">
+         <div class="profile-details">
+           <img src="/static/img/logo.jpeg" alt="profileImg" style="height:40px;" class="img-fluid rounded-pill">
+           <div class="name_job">
+             <div class="name">Ashok Vatika</div>
+           </div>
+         </div>
+         <a href="/"><i class='bx bx-log-out' id="log_out" ></i></a>
+     </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <body>
+      <div class="main-content">
+        <div class="container mt-0"><br/>
+          <!-- Table -->
+          <h3 class="hny-title mb-5">My Account Details</h3>
+          <div class="row">
+            <div class="col-xl-8 m-auto order-xl-1">
+              <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">My account</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                      <a href="/changepassword" class="btn btn-sm btn-primary">Change Password</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-username">Username</label>
+                            <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" disabled value=" {{request.user.username}}">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Email address</label>
+                            <input type="email" id="input-email" disabled class="form-control form-control-alternative" value=" {{request.user.email}}">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-first-name">First name</label>
+                            <input type="text" id="input-first-name" class="form-control form-control-alternative" disabled placeholder="First name" value="{{ request.user.first_name}}">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-last-name">Last name</label>
+                            <input type="text" id="input-last-name" class="form-control form-control-alternative" disabled placeholder="Last name" value="{{request.user.last_name}}">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Address -->
+                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-address">Address</label>
+                            <input id="input-address" class="form-control form-control-alternative" disabled placeholder="Home Address" value="{{request.orders.Address}}" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-city">City</label>
+                            <input type="text" id="input-city" class="form-control form-control-alternative" disabled placeholder="City" value="{{request.orders.district}}">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group focused">
+                            <label class="form-control-label" for="input-country">Country</label>
+                            <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="India" disabled>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-country">Postal code</label>
+                            <input type="number" id="input-postal-code" class="form-control form-control-alternative" disabled placeholder="Postal code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Description -->
+                 
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </section>
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
+</body>
+</html>

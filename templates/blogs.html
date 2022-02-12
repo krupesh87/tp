@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashok Vatica: Blogs</title>
+    <link href="//fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style-starter.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke">
+
+              <a class="navbar-brand" href="/">
+                <img src="/static/img/logo.jpeg" alt="logo" title="Ashok Vatika" style="height:40px;" class="img-fluid rounded-pill"/>
+              </a>
+                <h1><a class="navbar-brand" href="/">
+                        Ashok Vatika
+                </a></h1>
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" -->
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    <nav class="mr-auto ml-lg-5"></nav>
+                    
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="ser">Category</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link d" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">Account<span class="fa fa-chevron-circle-down ml-2" aria-hidden="true"></span>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              {%  if user.is_authenticated%}
+                              <li><a class="dropdown-item" href="myaccount">MyAccount</a></li>
+                              <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                              {% else %}
+                              <li><a class="dropdown-item" href="login.html"><span style="color:#1cbd37;">Login</span></a>
+                              </li>
+                              <li><a class="dropdown-item" href="signup.html">Register</a></li>
+                              {% endif %}
+                          </ul>
+                      </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <div class="inner-banner">
+        <section class="w3l-breadcrumb">
+            <div class="container">
+                <ul class="breadcrumbs-custom-path">
+                    <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Blogs</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <section class="w3l-blogpost-content py-5">
+        <div class="container py-md-5">
+            <div class="header-title mb-md-5 mt-4">
+                <span class="sub-title">Latest Posts</span>
+                <h3 class="hny-title text-left">Our Blog Posts</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 item">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.natria.com/learn/rose-flower/10-steps-growing-plants-seed" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/ab8.jpg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.natria.com/learn/rose-flower/10-steps-growing-plants-seed" class="blog-desc">How to grow plants from kinds of seeds.
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">-Natria</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Jan 13, 2018 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/how-to-care-for-your-philodendrons/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/palin.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/how-to-care-for-your-philodendrons/" target="_blank" class="blog-desc">HOW TO CARE FOR YOUR PHILODENDRONS</a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Dec 25, 2020 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/gifting-plants-is-an-act-of-kindness/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/kindness.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/gifting-plants-is-an-act-of-kindness/" target="_blank" class="blog-desc">GIFTING PLANTS IS AN ACT OF KINDNESS</a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> March 13, 2020 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/top-ten-easiest-indoor-plants-for-your-new-year-garden/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/indooor.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/top-ten-easiest-indoor-plants-for-your-new-year-garden/" target="_blank" class="blog-desc">TOP TEN EASIEST INDOOR PLANTS FOR YOUR NEW YEAR GARDEN</a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Jan 30, 2021 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://plantsheaven.com/house-plants-benefits/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/ab2.jpg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://plantsheaven.com/house-plants-benefits/" target="_blank" class="blog-desc">Did you know that plants make your home healthier and cozier?</a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Altiné</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Nov 02, 2019 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/the-science-behind-watering-your-plants-right/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/watering.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/the-science-behind-watering-your-plants-right/" target="_blank" class="blog-desc">THE SCIENCE BEHIND WATERING YOUR PLANTS RIGHT
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> June 20, 2020 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://agriculturegoods.com/best-fertilizer-for-indoor-plants/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/ab6.jpg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://agriculturegoods.com/best-fertilizer-for-indoor-plants/" target="_blank" class="blog-desc">What kind of fertilizers are sutaible for plants inside Home.
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">agriculturegoods</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Aug 23, 2020 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/6-super-succulents-for-windowsill/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/window.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/6-super-succulents-for-windowsill/" target="_blank" class="blog-desc">6 SUPER SUCCULENTS FOR WINDOWSILL.
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Aug 30, 2019 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card">
+                        <div class="card-header p-0 position-relative">
+                            <a href="https://www.ugaoo.com/knowledge-center/calathea-care-101/" target="_blank">
+                                <img class="card-img-bottom d-block radius-image-full" src="/static/img/blog.jpeg" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body blog-details">
+                            <a href="https://www.ugaoo.com/knowledge-center/calathea-care-101/" target="_blank" class="blog-desc">CALATHEA CARE 101
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="/static/img/admin.jpg" alt="" class="img-fluid rounded-circle">
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="#">Ugaoo</a> 
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> Feb 9, 2021 </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- footer -->
+     <section class="w3l-footer-29-main">
+        <div class="footer-29 py-5">
+            <div class="container py-lg-4">
+                <div class="row footer-top-29">
+                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+                        <div class="footer-logo mb-3">
+                            <a class="navbar-brand" href="/">Ashok Vatika</a>
+                        </div>
+                        <p>At Ashok Vatika, we firmly believe that we can change</p>
+                        <div class="main-social-footer-29 mt-4">
+                            <a href="https://www.facebook.com/profile.php?id=100074114160121" class="facebook"><span class="fa fa-facebook"></span></a>
+                          
+                            <a href="https://www.instagram.com/ashokvatika12/" class="instagram"><span class="fa fa-instagram"></span></a>
+                          
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
+
+                        <ul>
+                            <h6 class="footer-title-29">Useful Links</h6>
+                            <li><a href="about">About Us</a></li>
+                            <li><a href="ser">Categories</a></li>
+                            <li><a href="donate">Donate Plants</a></li>
+                            <li><a href="blog"> Blog posts</a></li>
+                            <li><a href="contact">Contact us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">Contact Info </h6>
+                        <p><strong>Address :</strong> Ashok Vatika, 343 Honey Avenue street, Mumbai, Maharashtra, India- 400042.</p>
+                        <p class="my-2"><strong>Phone :</strong> <a href="tel:+19 9234567909">+19 9234567909</a></p>
+                        <p><strong>Email :</strong> <a href="mailto:AshokVatica@gmail.com">AshokVatica@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //footer -->
+  
+    <!-- copyright -->
+    <section class="w3l-copyright">
+        <div class="container">
+            <div class="row bottom-copies">
+                <p class="col-lg-8 copy-footer-29">© 2021 AshokVatica All rights reserved.</p>
+  
+                <div class="col-lg-4 footer-list-29">
+                    <ul class="d-flex text-lg-right justify-content-center mt-lg-0 mt-3">
+                        <li class="mx-lg-5 mx-md-4 mx-3"><a href="/static/pdf/privacy-policy.pdf" target="_blank">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+  
+            </div>
+        </div>
+  
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            &#10548;
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+  
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+  
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- /move top -->
+    </section>
+    <!-- //copyright -->
+    <script src="/static/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+    <script src="/static/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!--/MENU-JS-->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+  
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+  
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!--//MENU-JS-->
+  
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+  
+    <!--bootstrap-->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- //bootstrap-->
+</body>
+</html>

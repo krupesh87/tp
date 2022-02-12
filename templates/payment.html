@@ -1,0 +1,72 @@
+{% load cart %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashok Vatika: Payment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"
+    integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="container-flex text-center mt-3 pb-3">
+    <input type="submit" value="{{cart|total_cart_price:request.session.cart}}" name="price" />
+    <div class="container mt-3">
+      <form action="http://127.0.0.1:8000/orders">
+        {% csrf_token %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_clZsiMXMKNtjFn"
+          data-amount="{{payment.amount}}" data-currency="INR" data-order_id="{{payment.id}}"
+          data-button_theme = "brand-color"
+         
+          data-buttontext="Pay with Razorpay" data-name="Ashok Vatika"
+          data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+          data-image="/static/img/logo.jpeg" 
+          data-prefill.name="{{request.user.first_name}}"
+          data-prefill.email="{{User.Email}}" data-theme.color="#F37254">
+        var options = {
+            callback_url: 'https://localhost:8000/orders',
+            redirect: true
+          }
+          
+          </script>
+        <input type="hidden" custom="Hidden Element" name="hidden" />
+      </form>
+
+    </div>
+    
+
+
+   
+  </div>
+  <script>
+    function myfunction() {
+      document.getElementById("form").submit();
+      $.ajax({
+        method: "POST",
+        url: "/check-out",
+        data: { name: "krupesh" }
+      })
+        .done(function (response) {
+          console.log(response)
+        })
+        .fail(function (response) {
+          console.log(response)
+        })
+
+    }
+  </script>
+
+
+</body>
+
+</html>
